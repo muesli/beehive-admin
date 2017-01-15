@@ -1,0 +1,53 @@
+<div>
+  <h4>Running Bees</h4>
+  <table class="table table-striped">
+<!--    <caption>Bees</caption>-->
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Namespace</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each bees as |bee|}}
+      <tr>
+        <td>{{#link-to "bees.show" bee.id}}{{bee.name}}{{/link-to}}</td>
+        <td>{{bee.namespace}}</td>
+        <td>{{bee.description}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<br/>
+<hr/>
+<br/>
+
+<div>
+  <h4>Available Hives</h4>
+  <table class="table table-striped">
+<!--    <caption>Bees</caption>-->
+    <thead>
+      <tr>
+        <th class="text-right">Image</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each hives as |hive|}}
+      <tr>
+        <td class="text-right"><img height=32 src={{hive.image}}></td>
+        <td>{{hive.name}}</td>
+        <td>{{hive.description}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<br/>
+<hr/>
+<br/>

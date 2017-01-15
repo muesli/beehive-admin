@@ -1,0 +1,23 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'index' class="navbar-brand"}}Beehive{{/link-to}}
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav">
+            {{#link-to 'hives.all' tagName="li"}}<a href="">Hives</a>{{/link-to}}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+            {{#link-to 'admin' tagName="li"}}<a href="">Admin</a>{{/link-to}}
+            {{#link-to 'login' tagName="li"}}<a href="">Login</a>{{/link-to}}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

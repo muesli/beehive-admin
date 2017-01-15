@@ -1,0 +1,15 @@
+<div class="container">
+  {{partial 'navbar'}}
+  {{outlet}}
+</div>
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <p class="navbar-text pull-left">
+      {{#link-to 'about'}}<a href="">Imprint</a>{{/link-to}}
+    </p>
+
+    <a href="https://twitter.com" class="navbar-btn btn-info btn pull-right">
+    <span class="glyphicon glyphicon-star"></span>&nbsp;&nbsp;Subscribe on Twitter</a>
+  </div>
+</div>

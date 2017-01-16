@@ -4,6 +4,7 @@ export default function() {
     this.namespace='/v1';
 
     this.passthrough('/hives');
+    this.passthrough('/hives/:hive_id');
     this.passthrough('/bees');
     this.passthrough('/bees/:bee_id');
 

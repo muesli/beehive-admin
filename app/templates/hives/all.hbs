@@ -7,6 +7,9 @@
         <th>Name</th>
         <th>Namespace</th>
         <th>Description</th>
+        <th>Last Event</th>
+        <th>Last Action</th>
+        <th>State</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +18,27 @@
         <td>{{#link-to "bees.show" bee.id}}{{bee.name}}{{/link-to}}</td>
         <td>{{bee.namespace}}</td>
         <td>{{bee.description}}</td>
+        <td>
+            {{#if bee.lastevent}}
+            {{moment-from-now bee.lastevent}}
+            {{else}}
+            never
+            {{/if}}
+        </td>
+        <td>
+            {{#if bee.lastaction}}
+            {{moment-from-now bee.lastaction}}
+            {{else}}
+            never
+            {{/if}}
+        </td>
+        {{#if bee.active}}
+            <td>Running</td>
+            <td><button disabled={{isDisabled}} {{action 'stopBee' bee.id}} class="btn btn-danger btn-sm btn-block">Stop</button></td>
+        {{else}}
+            <td>Stopped</td>
+            <td><button disabled={{isDisabled}} {{action 'startBee' bee.id}} class="btn btn-primary btn-sm btn-block">Start</button></td>
+        {{/if}}
       </tr>
     {{/each}}
     </tbody>
@@ -40,7 +64,7 @@
     {{#each hives as |hive|}}
       <tr>
         <td class="text-right"><img height=32 src={{hive.image}}></td>
-        <td>{{hive.name}}</td>
+        <td>{{#link-to "hives.show" hive.id}}{{hive.name}}{{/link-to}}</td>
         <td>{{hive.description}}</td>
       </tr>
     {{/each}}

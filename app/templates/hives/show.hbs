@@ -1,0 +1,94 @@
+<div class="jumbo show-listing">
+  <div class="row">
+    <div class="col-xs-9 col-xs-offset-0 col-sm-9 col-sm-offset-0 col-md-9 col-md-offset-0">
+        <h3 class="title">Name: <strong>{{hive.name}}</strong></h3>
+        <div>
+          <div class="detail">
+              Description: <strong>{{hive.description}}</strong>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <br/>
+  <div>
+      <h3>Configuration Options</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default Value</th>
+            <th class="text-center">Mandatory</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            {{#each hive.options as |option|}}
+            <tr>
+                <td>{{option.Name}}</td>
+                <td>{{option.Description}}</td>
+                <td>{{option.Type}}</td>
+                <td>{{option.Default}}</td>
+                <td class="text-center">
+                    {{#if option.Mandatory}}
+                    <strong>Yes</strong>
+                    {{else}}
+                    No
+                    {{/if}}
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+      </table>
+  </div>
+
+  <br/>
+  <div>
+      <h3>Provided Events</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            {{#each hive.events as |event|}}
+            <tr>
+                <td>{{event.Name}}</td>
+                <td>{{event.Description}}</td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+      </table>
+  </div>
+
+  <br/>
+  <div>
+      <h3>Provided Actions</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            {{#each hive.actions as |action|}}
+            <tr>
+                <td>{{action.Name}}</td>
+                <td>{{action.Description}}</td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+      </table>
+  </div>
+
+</div>

@@ -4,7 +4,17 @@
         <h3 class="title">Name: <strong>{{bee.name}}</strong></h3>
         <div>
           <div class="detail">
-            Class: <strong>{{bee.namespace}}</strong>
+              Class: <strong>{{bee.namespace}}</strong>
+          </div>
+          <div class="detail">
+              State:
+              {{#if bee.active}}
+                  Running
+                  <td><button disabled={{isDisabled}} {{action 'stopBee'}} class="btn btn-danger btn-sm btn-block">Stop</button></td>
+              {{else}}
+                  Stopped
+                  <td><button disabled={{isDisabled}} {{action 'startBee'}} class="btn btn-primary btn-sm btn-block">Start</button></td>
+              {{/if}}
           </div>
         </div>
     </div>

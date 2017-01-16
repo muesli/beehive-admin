@@ -8,6 +8,18 @@ export default Ember.Controller.extend({
           this.options.set(option.Name, value);
       },
 
+      startBee() {
+          var bee = this.get('bee');
+          bee.set('active', true);
+          bee.save();
+      },
+
+      stopBee() {
+          var bee = this.get('bee');
+          bee.set('active', false);
+          bee.save();
+      },
+
       updateBee() {
           var bee = this.get('bee');
           var opts = bee.get('options');
@@ -24,6 +36,7 @@ export default Ember.Controller.extend({
           });
 
           bee.save();
+          this.options = new Map();
       }
     }
 });

@@ -16,7 +16,7 @@
     {{#each bees as |bee|}}
       <tr>
         <td>{{#link-to "bees.show" bee.id}}{{bee.name}}{{/link-to}}</td>
-        <td>{{bee.namespace}}</td>
+        <td>{{bee.namespace.name}}</td>
         <td>{{bee.description}}</td>
         <td>
             {{#if bee.lastevent}}

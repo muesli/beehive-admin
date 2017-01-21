@@ -26,10 +26,16 @@
 
             {{#each hive.options as |option|}}
             <tr>
-                <td>{{option.Name}}</td>
+                <td><i>{{option.Name}}</i></td>
                 <td>{{option.Description}}</td>
                 <td>{{option.Type}}</td>
-                <td>{{option.Default}}</td>
+                <td>
+                    {{#if option.Default}}
+                    {{option.Default}}
+                    {{else}}
+                    <div class="text-muted">empty</div>
+                    {{/if}}
+                </td>
                 <td class="text-center">
                     {{#if option.Mandatory}}
                     <strong>Yes</strong>
@@ -58,7 +64,7 @@
 
             {{#each hive.events as |event|}}
             <tr>
-                <td>{{event.Name}}</td>
+                <td><i>{{event.Name}}</i></td>
                 <td>{{event.Description}}</td>
             </tr>
             {{/each}}
@@ -81,7 +87,7 @@
 
             {{#each hive.actions as |action|}}
             <tr>
-                <td>{{action.Name}}</td>
+                <td><i>{{action.Name}}</i></td>
                 <td>{{action.Description}}</td>
             </tr>
             {{/each}}

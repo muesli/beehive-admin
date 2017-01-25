@@ -14,6 +14,14 @@ export default Ember.Controller.extend({
                 bee.set('active', false);
                 bee.save();
             });
+        },
+
+        deleteBee(bee) {
+            var r = confirm("Do you really want to delete Bee '" + bee.get('name') + "'");
+
+            if (r) {
+                bee.destroyRecord();
+            }
         }
     }
 });

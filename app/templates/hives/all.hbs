@@ -39,6 +39,7 @@
             <td>Stopped</td>
             <td><button disabled={{isDisabled}} {{action 'startBee' bee.id}} class="btn btn-primary btn-sm btn-block">Start</button></td>
         {{/if}}
+        <td class="td-centered"><button {{action 'deleteBee' bee}} class="btn btn-danger btn-sm btn-block">Delete</button></td>
       </tr>
     {{/each}}
     </tbody>

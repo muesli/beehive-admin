@@ -10,7 +10,7 @@
               State:
               {{#if bee.active}}
                   Running
-                  <td><button disabled={{isDisabled}} {{action 'stopBee'}} class="btn btn-danger btn-sm btn-block">Stop</button></td>
+                  <td><button disabled={{isDisabled}} {{action 'stopBee'}} class="btn btn-warning btn-sm btn-block">Stop</button></td>
               {{else}}
                   Stopped
                   <td><button disabled={{isDisabled}} {{action 'startBee'}} class="btn btn-primary btn-sm btn-block">Start</button></td>

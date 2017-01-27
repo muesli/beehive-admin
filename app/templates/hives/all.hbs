@@ -62,8 +62,9 @@
     {{#each hives as |hive|}}
       <tr>
         <td class="text-right"><img height=32 src={{hive.image}}></td>
-        <td>{{#link-to "hives.show" hive.id}}{{hive.name}}{{/link-to}}</td>
-        <td>{{hive.description}}</td>
+        <td class="td-centered">{{#link-to "hives.show.summary" hive.id}}{{hive.name}}{{/link-to}}</td>
+        <td class="td-centered">{{hive.description}}</td>
+        <td class="td-centered">{{#link-to "bees.new" hive.id tagName="button" class="btn btn-primary btn-sm btn-block"}}New Bee{{/link-to}}</td>
       </tr>
     {{/each}}
     </tbody>

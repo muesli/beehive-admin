@@ -1,0 +1,33 @@
+<br/>
+<div>
+    <h4 class="title">
+        Action: <strong>{{model.Name}}</strong>
+        <br/>
+        <small>{{model.Description}}</small>
+    </h4>
+    <br/>
+
+    <h4>Parameters</h4>
+    <div class="well">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          {{#each model.Options as |option|}}
+          <tr>
+              <td><i>{{option.Name}}</i></td>
+              <td>{{option.Description}}</td>
+              <td>{{option.Type}}</td>
+          </tr>
+          {{/each}}
+
+      </tbody>
+    </table>
+    </div>
+</div>

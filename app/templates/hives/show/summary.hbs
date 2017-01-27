@@ -1,0 +1,86 @@
+<br/>
+<h3>Configuration Options</h3>
+<div class="well">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Default Value</th>
+          <th class="text-center">Mandatory</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          {{#each model.options as |option|}}
+          <tr>
+              <td><i>{{option.Name}}</i></td>
+              <td>{{option.Description}}</td>
+              <td>{{option.Type}}</td>
+              <td>
+                  {{#if option.Default}}
+                  {{option.Default}}
+                  {{else}}
+                  <div class="text-muted">empty</div>
+                  {{/if}}
+              </td>
+              <td class="text-center">
+                  {{#if option.Mandatory}}
+                  <strong>Yes</strong>
+                  {{else}}
+                  No
+                  {{/if}}
+              </td>
+          </tr>
+          {{/each}}
+
+      </tbody>
+    </table>
+</div>
+
+<br/>
+<h3>Provided Events</h3>
+<div class="well">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          {{#each model.events as |event|}}
+          <tr>
+              <td><i>{{#link-to "hives.show.event" model.id event.Name}}{{event.Name}}{{/link-to}}</i></td>
+              <td>{{event.Description}}</td>
+          </tr>
+          {{/each}}
+
+      </tbody>
+    </table>
+</div>
+
+<br/>
+<h3>Provided Actions</h3>
+<div class="well">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          {{#each model.actions as |action|}}
+          <tr>
+              <td><i>{{#link-to "hives.show.action" model.id action.Name}}{{action.Name}}{{/link-to}}</i></td>
+              <td>{{action.Description}}</td>
+          </tr>
+          {{/each}}
+
+      </tbody>
+    </table>
+</div>

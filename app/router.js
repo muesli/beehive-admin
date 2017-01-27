@@ -9,8 +9,13 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('hives', function() {
     this.route('all');
-    this.route('show', { path: '/:hive_id' });
+    this.route('show', { path: '/:hive_id' }, function() {
+      this.route('summary');
+      this.route('event', { path: 'events/:event_id' });
+      this.route('action', { path: 'actions/:action_id' });
+    });
   });
+
   this.route('admin');
   this.route('login');
   this.route('about');

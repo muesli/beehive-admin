@@ -2,7 +2,7 @@ import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('bee', 'Unit | Model | bee', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:hive']
 });
 
 test('it exists', function(assert) {

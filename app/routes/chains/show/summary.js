@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    model(params) {
+    model() {
        return Ember.RSVP.hash({
          chain: this.modelFor('chains.show').chain,
        });

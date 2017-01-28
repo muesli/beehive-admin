@@ -14,7 +14,7 @@
           <tr>
               <td>{{#link-to "bees.show" eventbee.id}}{{eventbee.name}}{{/link-to}}</td>
               <td>{{#link-to "hives.show.summary" eventbee.namespace.id}}{{eventbee.namespace.name}}{{/link-to}}</td>
-              <td><i>{{#link-to "hives.show.events.event" eventbee.namespace.id chain.event.Name}}{{chain.event.Name}}{{/link-to}}</i></td>
+              <td><i>{{#link-to "hives.show.event" eventbee.namespace.id chain.event.Name}}{{chain.event.Name}}{{/link-to}}</i></td>
           </tr>
 
       </tbody>
@@ -59,7 +59,7 @@
             <tr>
                 <td>{{#link-to "bees.show" action.bee.id}}{{action.bee.name}}{{/link-to}}</td>
                 <td>{{#link-to "hives.show.summary" action.bee.namespace.id}}{{action.bee.namespace.name}}{{/link-to}}</td>
-                <td><i>{{#link-to "hives.show.actions.action" action.bee.namespace.id action.name}}{{action.name}}{{/link-to}}</i></td>
+                <td><i>{{#link-to "hives.show.action" action.bee.namespace.id action.name}}{{action.name}}{{/link-to}}</i></td>
             </tr>
             <tr>
                 <td colspan="3">

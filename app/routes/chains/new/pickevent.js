@@ -9,6 +9,6 @@ export default Ember.Route.extend({
 
      setupController(controller, models) {
        controller.set('bee', models.bee);
-       controller.set('event', '');
+       controller.set('event', null);
      }
 });

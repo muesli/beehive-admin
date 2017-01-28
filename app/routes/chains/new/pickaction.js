@@ -15,6 +15,6 @@ export default Ember.Route.extend(/*AuthenticatedRouteMixin, */{
        controller.set('event', models.event);
        controller.set('beeaction', models.beeaction);
        controller.set('bee', models.bee);
-       controller.set('action', '');
+       controller.set('action', null);
      }
 });

@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
     errorMessage: "",
 
     isActionSet: Ember.computed('action', function() {
-        return this.action != "";
+        return this.action != null;
     }),
 
     reset() {

@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
     filters: [],
 
     isEventSet: Ember.computed('event', function() {
-        return this.event != "";
+        return this.event != null;
     }),
 
     actions: {

@@ -7,6 +7,14 @@ export default function() {
     this.passthrough('/hives/:hive_id');
     this.passthrough('/bees');
     this.passthrough('/bees/:bee_id');
+    this.passthrough('/chains');
+    this.passthrough('/chains/:chain_id');
+    this.passthrough('/actions');
+    this.passthrough('/actions/:action_id');
+    this.passthrough('/events');
+    this.passthrough('/events/:event_id');
+    this.passthrough('/filters');
+    this.passthrough('/filters/:filter_id');
 
   // These comments are here to help you get started. Feel free to delete them.
 

@@ -30,7 +30,6 @@ export default Ember.Controller.extend({
 
                   if (item.Name === key) {
                       Ember.set(item, 'Value', value);
-                      alert("Updated " + item.Name + " to " + item.Value);
                   }
               }
           });

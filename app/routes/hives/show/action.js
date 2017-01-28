@@ -5,7 +5,7 @@ export default Ember.Route.extend({
         var actions = this.modelFor('hives.show').hive.get('actions');
 
         var val;
-        actions.forEach(function(value, key) {
+        actions.forEach(function(value) {
             if (value.Name === params.action_id) {
                 val = value;
             }

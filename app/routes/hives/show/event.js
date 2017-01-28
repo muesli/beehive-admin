@@ -5,7 +5,7 @@ export default Ember.Route.extend({
         var events = this.modelFor('hives.show').hive.get('events');
 
         var val;
-        events.forEach(function(value, key) {
+        events.forEach(function(value) {
             if (value.Name === params.event_id) {
                 val = value;
             }

@@ -57,7 +57,7 @@ export default Ember.Controller.extend({
                             }
                         });
 
-                        const newevent = {Bee: beeevent.get('name'), Name: event}
+                        const newevent = {Bee: beeevent.get('name'), Name: event};
                         const chain = this.store.createRecord('chain', {name: name, description: description, event: newevent, filters: this.filters});
                         const newAction = this.store.createRecord('action', {
                             bee: beeaction,

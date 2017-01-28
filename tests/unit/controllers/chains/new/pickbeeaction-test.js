@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:chains/new/pickbeeaction/pickbeeaction', 'Unit | Controller | chains/new/pickbeeaction/pickbeeaction', {
+moduleFor('controller:chains/new/pickbeeaction', 'Unit | Controller | chains/new/pickbeeaction', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

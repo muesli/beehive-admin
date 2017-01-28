@@ -1,0 +1,93 @@
+<br/>
+<h3>Triggered by Event</h3>
+<div class="well">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Bee</th>
+          <th>Hive</th>
+          <th>Event</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          <tr>
+              <td>{{#link-to "bees.show" eventbee.id}}{{eventbee.name}}{{/link-to}}</td>
+              <td>{{#link-to "hives.show.summary" eventbee.namespace.id}}{{eventbee.namespace.name}}{{/link-to}}</td>
+              <td><i>{{#link-to "hives.show.events.event" eventbee.namespace.id chain.event.Name}}{{chain.event.Name}}{{/link-to}}</i></td>
+          </tr>
+
+      </tbody>
+    </table>
+</div>
+
+<br/>
+<h3>Runs through Filters</h3>
+<div class="well">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          {{#each chain.filters as |filter|}}
+            <tr>
+                <td>{{filter}}</td>
+            </tr>
+          {{/each}}
+
+      </tbody>
+    </table>
+</div>
+
+<br/>
+<h3>Triggers Actions</h3>
+<div class="well">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Hive</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          {{#each chain.actions as |action|}}
+            <tr>
+                <td>{{#link-to "bees.show" action.bee.id}}{{action.bee.name}}{{/link-to}}</td>
+                <td>{{#link-to "hives.show.summary" action.bee.namespace.id}}{{action.bee.namespace.name}}{{/link-to}}</td>
+                <td><i>{{#link-to "hives.show.actions.action" action.bee.namespace.id action.name}}{{action.name}}{{/link-to}}</i></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <h3>With Parameters</h3>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Type</th>
+                          <th>Value</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                          {{#each action.options as |option|}}
+                            <tr>
+                                <td>{{option.Name}}</td>
+                                <td>{{option.Type}}</td>
+                                <td>{{option.Value}}</td>
+                            </tr>
+                          {{/each}}
+
+                      </tbody>
+                    </table>
+                </td>
+            </tr>
+          {{/each}}
+
+      </tbody>
+    </table>
+</div>

@@ -1,0 +1,21 @@
+<div>
+  <h1 class="text-center"><b>Pick an event Bee</b></h1>
+
+  <div class="row list-group">
+
+    {{#each bees as |bee|}}
+
+    <div class="item col-xs-4 col-lg-4">
+        <div {{action "nextStep" bee on="click"}} class="thumbnail" style="background-color: {{bee.namespace.logocolor}}">
+            <img class="group list-group-image" src={{bee.namespace.image}} alt="" />
+            <div class="caption">
+                <h3 class="group inner list-group-item-heading">{{bee.name}}</h3>
+                <p class="group inner list-group-item-text">{{bee.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+
+  </div>
+</div>

@@ -22,6 +22,21 @@ Router.map(function() {
 
   this.route('bees', function() {
     this.route('show', { path: '/:bee_id' });
+    this.route('new', { path: 'new/:hive_id' });
+  });
+
+  this.route('chains', function() {
+    this.route('all');
+    this.route('show', { path: '/:chain_id' }, function() {
+      this.route('summary');
+    });
+
+    this.route('new', function() {
+      this.route('pickbee');
+      this.route('pickevent', { path: 'pickevent/:beeevent' });
+      this.route('pickbeeaction', { path: 'pickbeeaction/:beeevent/:event' });
+      this.route('pickaction', { path: 'pickaction/:beeevent/:event/:beeaction' });
+    });
   });
 });
 

@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:bees/new/new', 'Unit | Controller | bees/new/new', {
+moduleFor('controller:bees/new', 'Unit | Controller | bees/new', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

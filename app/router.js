@@ -23,6 +23,7 @@ Router.map(function() {
   this.route('bees', function() {
     this.route('show', { path: '/:bee_id' });
     this.route('new', { path: 'new/:hive_id' });
+    this.route('all');
   });
 
   this.route('chains', function() {

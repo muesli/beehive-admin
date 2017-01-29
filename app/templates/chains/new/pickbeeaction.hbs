@@ -4,6 +4,7 @@
   <div class="row list-group">
 
     {{#each bees as |actionbee|}}
+    {{#if actionbee.namespace.actions}}
 
     <div class="item col-xs-4 col-lg-4">
         <div {{action "nextStep" actionbee on="click"}} class="thumbnail" style="background-color: {{actionbee.namespace.logocolor}}">
@@ -15,6 +16,7 @@
         </div>
     </div>
 
+    {{/if}}
     {{/each}}
 
   </div>

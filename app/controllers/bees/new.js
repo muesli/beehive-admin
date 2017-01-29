@@ -5,6 +5,8 @@ export default Ember.Controller.extend({
     description: "",
     options: new Map(),
 
+    errorMessage: "",
+
     isValid: Ember.computed('name', 'description', function() {
         return this.name.length > 0 && this.description.length > 0;
     }),
@@ -41,7 +43,8 @@ export default Ember.Controller.extend({
                   this.transitionToRoute('bees.show', bee.id);
               },
               error => {
-                  alert(error);
+                  bee.rollbackAttributes();
+                  this.set('errorMessage', `Failed creating Bee: ` + error.errors[0].detail);
               }
           );
       }

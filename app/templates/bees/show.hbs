@@ -1,27 +1,29 @@
 <div class="jumbo show-listing">
   <div class="row">
-    <div class="col-xs-9 col-xs-offset-0 col-sm-9 col-sm-offset-0 col-md-9 col-md-offset-0">
-        <h3 class="title">Name: <strong>{{bee.name}}</strong></h3>
+    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
+        <img height="128" style="float: left; margin-right: 24px;" src={{bee.namespace.image}}/>
         <div>
-          <div class="detail">
-              Class: <strong>{{bee.namespace.name}}</strong>
-          </div>
-          <div class="detail">
-              State:
-              {{#if bee.active}}
-                  Running
-                  <td><button disabled={{isDisabled}} {{action 'stopBee'}} class="btn btn-warning btn-sm btn-block">Stop</button></td>
-              {{else}}
-                  Stopped
-                  <td><button disabled={{isDisabled}} {{action 'startBee'}} class="btn btn-primary btn-sm btn-block">Start</button></td>
-              {{/if}}
-          </div>
+            <h3 class="title"><strong>{{bee.name}}</strong></h3>
+            <div>
+              <div class="detail">
+                  Hive: <strong>{{bee.namespace.name}}</strong>
+              </div>
+              <div class="detail">
+                  State:
+                  {{#if bee.active}}
+                      Running
+                      <td><button disabled={{isDisabled}} {{action 'stopBee'}} class="btn btn-warning btn-sm btn-block">Stop</button></td>
+                  {{else}}
+                      Stopped
+                      <td><button disabled={{isDisabled}} {{action 'startBee'}} class="btn btn-primary btn-sm btn-block">Start</button></td>
+                  {{/if}}
+              </div>
+            </div>
         </div>
     </div>
   </div>
 
   <br/>
-
   <div class="well">
 
   <div class="form-horizontal form-group form-group-lg row">

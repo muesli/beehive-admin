@@ -1,6 +1,7 @@
 <br/>
 <h3>Configuration Options</h3>
 <div class="well">
+    {{#if model.options}}
     <table class="table table-striped">
       <thead>
         <tr>
@@ -37,11 +38,15 @@
 
       </tbody>
     </table>
+    {{else}}
+    No configuration needed.
+    {{/if}}
 </div>
 
 <br/>
 <h3>Provided Events</h3>
 <div class="well">
+    {{#if model.events}}
     <table class="table table-striped">
       <thead>
         <tr>
@@ -60,11 +65,15 @@
 
       </tbody>
     </table>
+    {{else}}
+    No events provided.
+    {{/if}}
 </div>
 
 <br/>
 <h3>Provided Actions</h3>
 <div class="well">
+    {{#if model.actions}}
     <table class="table table-striped">
       <thead>
         <tr>
@@ -83,4 +92,7 @@
 
       </tbody>
     </table>
+    {{else}}
+    No actions provided.
+    {{/if}}
 </div>

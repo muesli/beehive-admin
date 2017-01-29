@@ -72,7 +72,8 @@ export default Ember.Controller.extend({
                                     this.transitionToRoute('chains.show.summary', chain.id);
                                 },
                                 error => {
-                                  this.set('errorMessage', `Failed creating chain: ` + error.errors[0].detail);
+                                    chain.rollbackAttributes();
+                                    this.set('errorMessage', `Failed creating Chain: ` + error.errors[0].detail);
                                 }
                             );
                         });

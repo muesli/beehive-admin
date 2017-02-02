@@ -32,13 +32,14 @@
       <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
         {{#each hive.options as |option|}}
           <h4>{{option.Name}}:</h4>
-          <input type="text" onchange={{action (action "updateOption" option) value="target.value"}} value={{option.Value}} class="form-control" placeholder={{option.Default}}>
+          <input type="text" onchange={{action (action "updateOption" option) value="target.value"}} value={{option.Value}} class="form-control" placeholder={{option.Description}}>
           {{#if option.Mandatory}}
           <div class="alert alert-warning" role="alert">This is a required value</div>
           {{/if}}
         {{/each}}
       </div>
     </div>
+    <br/>
   </div>
 
   <br/>

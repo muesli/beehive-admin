@@ -19,7 +19,18 @@ body {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
+}
+
+.thumbnailbutton
+{
     cursor: pointer;
+}
+
+.thumbnailflex
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .item
@@ -36,8 +47,9 @@ body {
 .list-group-item-heading
 {
     color: white;
-    text-align: center;
-    margin: 8px;
+//    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 img.list-group-image
@@ -47,6 +59,15 @@ img.list-group-image
     max-width: 256px;
     height: 100%;
     max-height: 256px;
+}
+
+img.list-group-image-small
+{
+    padding: 32px;
+    width: 100%;
+    max-width: 128px;
+    height: 100%;
+    max-height: 128px;
 }
 
 .row.list-group {

@@ -1,23 +1,24 @@
 <div>
-  <h4>Available Hives</h4>
-  <table class="table table-striped">
-<!--    <caption>Bees</caption>-->
-    <thead>
-      <tr>
-        <th class="text-right">Image</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
+  <h1 class="text-center"><b>Available Hives</b></h1>
+
+  <div class="row list-group">
+
     {{#each hives as |hive|}}
-      <tr>
-        <td class="text-right"><img height=32 src={{hive.image}}></td>
-        <td class="td-centered">{{#link-to "hives.show.summary" hive.id}}{{hive.name}}{{/link-to}}</td>
-        <td class="td-centered">{{hive.description}}</td>
-        <td class="td-centered">{{#link-to "bees.new" hive.id tagName="button" class="btn btn-primary btn-sm btn-block"}}New Bee{{/link-to}}</td>
-      </tr>
+
+    <div class="item col-xs-3 col-lg-3">
+        <div class="thumbnail thumbnailflex" style="background-color: {{hive.logocolor}};">
+            <img class="group list-group-image-small" src={{hive.image}} alt="" />
+            <div class="caption" style="vertical-align: top;">
+                <h4 class="group inner list-group-item-heading">{{hive.name}}</h4>
+                <p class="group inner list-group-item-text">{{hive.description}}</p>
+            </div>
+            <div style="margin-top: 8px;">
+                {{#link-to "bees.new" hive.id tagName="button" class="btn btn-primary btn-sm btn-block"}}New Bee{{/link-to}}
+            </div>
+        </div>
+    </div>
+
     {{/each}}
-    </tbody>
-  </table>
+
+  </div>
 </div>

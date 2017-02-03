@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     actions: {
-      nextStep(bee) {
-          this.transitionToRoute('chains.new.pickevent', bee.id);
+      showHive(hive) {
+          this.transitionToRoute('hives.show.summary', hive.id);
       }
     }
 });

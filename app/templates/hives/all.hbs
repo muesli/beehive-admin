@@ -6,7 +6,7 @@
     {{#each hives as |hive|}}
 
     <div class="item col-xs-3 col-lg-3">
-        <div class="thumbnail thumbnailflex" style="background-color: {{hive.logocolor}};">
+        <div {{action "showHive" hive on="click"}} class="thumbnail thumbnailflex thumbnailbutton" style="background-color: {{hive.logocolor}}">
             <img class="group list-group-image-small" src={{hive.image}} alt="" />
             <div class="caption" style="vertical-align: top;">
                 <h4 class="group inner list-group-item-heading">{{hive.name}}</h4>

@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
         var examples = [];
         var opts = this.event.Options;
 
-        opts.forEach(function(value, key) {
+        opts.forEach(function(value) {
             switch (value.Type) {
             case "string":
                 examples.push({

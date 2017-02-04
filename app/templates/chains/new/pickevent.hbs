@@ -44,6 +44,25 @@
           </tbody>
         </table>
 
+            <h4>Examples</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Filter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each filterExamples as |example|}}
+                    <tr>
+                        <td>{{example.Filter}}</td>
+                        <td>{{{example.Description}}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <h5>Find more examples in our <a target="_blank" href="https://github.com/muesli/beehive/wiki/Available-Action-&-Filter-helper-methods">Wiki</a>.</h5>
+
         <div class="row">
           <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 

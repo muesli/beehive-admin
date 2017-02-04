@@ -8,6 +8,38 @@ export default Ember.Controller.extend({
         return this.event != null;
     }),
 
+    filterExamples: Ember.computed('event.Options', function() {
+        var examples = [];
+        var opts = this.event.Options;
+
+        opts.forEach(function(value, key) {
+            switch (value.Type) {
+            case "string":
+                examples.push({
+                        "Filter": "{{test eq ." + value.Name + " \"example\"}}",
+                        "Description": "Matches when <b>" + value.Name + "</b> equals <i>example</i>"
+                });
+                examples.push({
+                        "Filter": "{{test HasPrefix ." + value.Name + " \"somePrefix\"}}",
+                        "Description": "Matches when <b>" + value.Name + "</b> starts with <i>somePrefix</i>"
+                });
+                examples.push({
+                        "Filter": "{{test Contains ." + value.Name + " \"example\"}}",
+                        "Description": "Matches when <b>" + value.Name + "</b> contanins <i>example</i>"
+                });
+                break;
+            case "bool":
+                examples.push({
+                        "Filter": "{{test eq ." + value.Name + " true}}",
+                        "Description": "Matches when <b>" + value.Name + "</b> is <i>true</i>"
+                });
+                break;
+            }
+        });
+
+        return examples;
+    }),
+
     actions: {
         pickEvent(event) {
             this.set('event', event);

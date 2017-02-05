@@ -6,7 +6,7 @@
     {{#each bee.namespace.events as |event|}}
 
       <div class="item col-xs-4 col-lg-4">
-        <div {{action "pickEvent" event on="click"}} class="thumbnail" style="background-color: {{bee.namespace.logocolor}}">
+        <div {{action "pickEvent" event on="click"}} class="thumbnail thumbnailbutton" style="background-color: {{bee.namespace.logocolor}}">
           <div class="caption">
             <h3 class="group inner list-group-item-heading">{{event.Name}}</h3>
             <p class="group inner list-group-item-text">{{event.Description}}</p>

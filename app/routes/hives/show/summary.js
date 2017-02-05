@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    model() {
-        return this.modelFor('hives.show').hive;
-     }
+	model() {
+		return this.modelFor('hives.show').hive;
+	}
 });

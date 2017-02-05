@@ -1,7 +1,7 @@
 <br/>
 <h3>Configuration Options</h3>
 <div class="well">
-    {{#if model.options}}
+  {{#if model.options}}
     <table class="table table-striped">
       <thead>
         <tr>
@@ -14,39 +14,39 @@
       </thead>
       <tbody>
 
-          {{#each model.options as |option|}}
+        {{#each model.options as |option|}}
           <tr>
-              <td><i>{{option.Name}}</i></td>
-              <td>{{option.Description}}</td>
-              <td>{{option.Type}}</td>
-              <td>
-                  {{#if option.Default}}
-                  {{option.Default}}
-                  {{else}}
-                  <div class="text-muted">empty</div>
-                  {{/if}}
-              </td>
-              <td class="text-center">
-                  {{#if option.Mandatory}}
-                  <strong>Yes</strong>
-                  {{else}}
-                  No
-                  {{/if}}
-              </td>
+            <td><i>{{option.Name}}</i></td>
+            <td>{{option.Description}}</td>
+            <td>{{option.Type}}</td>
+            <td>
+              {{#if option.Default}}
+                {{option.Default}}
+              {{else}}
+                <div class="text-muted">empty</div>
+              {{/if}}
+            </td>
+            <td class="text-center">
+              {{#if option.Mandatory}}
+                <strong>Yes</strong>
+              {{else}}
+                No
+              {{/if}}
+            </td>
           </tr>
-          {{/each}}
+        {{/each}}
 
       </tbody>
     </table>
-    {{else}}
+  {{else}}
     No configuration needed.
-    {{/if}}
+  {{/if}}
 </div>
 
 <br/>
 <h3>Provided Events</h3>
 <div class="well">
-    {{#if model.events}}
+  {{#if model.events}}
     <table class="table table-striped">
       <thead>
         <tr>
@@ -56,24 +56,24 @@
       </thead>
       <tbody>
 
-          {{#each model.events as |event|}}
+        {{#each model.events as |event|}}
           <tr>
-              <td><i>{{#link-to "hives.show.event" model.id event.Name}}{{event.Name}}{{/link-to}}</i></td>
-              <td>{{event.Description}}</td>
+            <td><i>{{#link-to "hives.show.event" model.id event.Name}}{{event.Name}}{{/link-to}}</i></td>
+            <td>{{event.Description}}</td>
           </tr>
-          {{/each}}
+        {{/each}}
 
       </tbody>
     </table>
-    {{else}}
+  {{else}}
     No events provided.
-    {{/if}}
+  {{/if}}
 </div>
 
 <br/>
 <h3>Provided Actions</h3>
 <div class="well">
-    {{#if model.actions}}
+  {{#if model.actions}}
     <table class="table table-striped">
       <thead>
         <tr>
@@ -83,16 +83,16 @@
       </thead>
       <tbody>
 
-          {{#each model.actions as |action|}}
+        {{#each model.actions as |action|}}
           <tr>
-              <td><i>{{#link-to "hives.show.action" model.id action.Name}}{{action.Name}}{{/link-to}}</i></td>
-              <td>{{action.Description}}</td>
+            <td><i>{{#link-to "hives.show.action" model.id action.Name}}{{action.Name}}{{/link-to}}</i></td>
+            <td>{{action.Description}}</td>
           </tr>
-          {{/each}}
+        {{/each}}
 
       </tbody>
     </table>
-    {{else}}
+  {{else}}
     No actions provided.
-    {{/if}}
+  {{/if}}
 </div>

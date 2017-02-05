@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    beforeModel() {
-        this._super(...arguments);
-        this.replaceWith('hives.all');
-    }
+	beforeModel() {
+		this._super(...arguments);
+		this.replaceWith('hives.all');
+	}
 });

@@ -5,67 +5,65 @@
 
     {{#each bee.namespace.actions as |action|}}
 
-    <div class="item col-xs-4 col-lg-4">
+      <div class="item col-xs-4 col-lg-4">
         <div {{action "pickAction" action on="click"}} class="thumbnail" style="background-color: {{bee.namespace.logocolor}}">
-            <div class="caption">
-                <h3 class="group inner list-group-item-heading">{{action.Name}}</h3>
-                <p class="group inner list-group-item-text">{{action.Description}}</p>
-            </div>
+          <div class="caption">
+            <h3 class="group inner list-group-item-heading">{{action.Name}}</h3>
+            <p class="group inner list-group-item-text">{{action.Description}}</p>
+          </div>
         </div>
-    </div>
+      </div>
 
     {{/each}}
 
   </div>
 
   {{#if isActionSet}}
-  <div class="jumbo show-listing">
-  <h1 class="text-center"><b>Configure Action Parameters</b></h1>
-  <div class="form-horizontal form-group form-group-lg row">
-    <div class="well">
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+    <div class="jumbo show-listing">
+      <h1 class="text-center"><b>Configure Action Parameters</b></h1>
+      <div class="form-horizontal form-group form-group-lg row">
+        <div class="well">
+          <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 
-        {{#each action.Options as |option|}}
-          <h4>{{option.Name}}:</h4>
-          <input type="text" onchange={{action (action "updateOption" option) value="target.value"}} value={{option.Value}} class="form-control" placeholder={{option.Value}}>
-        {{/each}}
+              {{#each action.Options as |option|}}
+                <h4>{{option.Name}}:</h4>
+                <input type="text" onchange= {{action (action "updateOption" option) value="target.value"}} value= {{option.Value}} class="form-control" placeholder= {{option.Value}}>
+              {{/each}}
 
-      </div>
-    </div>
-    <br/>
-    </div>
-  </div>
-
-  <h1 class="text-center"><b>Describe this Chain</b></h1>
-  <div class="form-horizontal form-group form-group-lg row">
-    <div class="well">
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
-          <h4>Name:</h4>
-          {{input value=name class="form-control" placeholder="Please enter a name"}}
+            </div>
+          </div>
           <br/>
+        </div>
+      </div>
 
-          <h4>Description:</h4>
-          {{textarea value=description class="form-control" placeholder="Please enter a description"}}
+      <h1 class="text-center"><b>Describe this Chain</b></h1>
+      <div class="form-horizontal form-group form-group-lg row">
+        <div class="well">
+          <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+              <h4>Name:</h4> {{input value=name class="form-control" placeholder="Please enter a name"}}
+              <br/>
+
+              <h4>Description:</h4> {{textarea value=description class="form-control" placeholder="Please enter a description"}}
+              <br/>
+            </div>
+          </div>
+        </div>
+
+        <br/>
+        <div class="row">
+          <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+            <button disabled= {{isDisabled}} {{action 'createChain'}} class="btn btn-primary btn-lg btn-block">Create Chain</button>
+          </div>
+        </div>
+
+        {{#if errorMessage}}
           <br/>
+          <div class="row alert alert-danger">{{errorMessage}}</div>
+        {{/if}}
+
       </div>
     </div>
-    </div>
-
-    <br/>
-    <div class="row">
-      <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
-        <button disabled={{isDisabled}} {{action 'createChain'}} class="btn btn-primary btn-lg btn-block">Create Chain</button>
-      </div>
-    </div>
-
-    {{#if errorMessage}}
-    <br/>
-    <div class="row alert alert-danger">{{errorMessage}}</div>
-    {{/if}}
-
-  </div>
-  </div>
   {{/if}}
 </div>

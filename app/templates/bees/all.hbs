@@ -1,7 +1,7 @@
 <div>
   <h4>Running Bees</h4>
   <table class="table table-striped">
-<!--    <caption>Bees</caption>-->
+    <!--    <caption>Bees</caption>-->
     <thead>
       <tr>
         <th>Name</th>
@@ -12,33 +12,37 @@
       </tr>
     </thead>
     <tbody>
-    {{#each bees as |bee|}}
-      <tr>
-        <td class="td-centered">{{#link-to "bees.show" bee.id}}{{bee.name}}{{/link-to}}</td>
-        <td class="td-centered">{{#link-to "hives.show.summary" bee.namespace.id}}{{bee.namespace.name}}{{/link-to}}</td>
-        <td class="td-centered">{{bee.description}}</td>
-        <td class="td-centered">
+      {{#each bees as |bee|}}
+        <tr>
+          <td class="td-centered">
+            {{#link-to "bees.show" bee.id}}{{bee.name}}{{/link-to}}
+          </td>
+          <td class="td-centered">
+            {{#link-to "hives.show.summary" bee.namespace.id}}{{bee.namespace.name}}{{/link-to}}
+          </td>
+          <td class="td-centered">{{bee.description}}</td>
+          <td class="td-centered">
             {{#if bee.lastevent}}
-            {{moment-from-now bee.lastevent}}
+              {{moment-from-now bee.lastevent}}
             {{else}}
-            never
+              never
             {{/if}}
-        </td>
-        <td class="td-centered">
+          </td>
+          <td class="td-centered">
             {{#if bee.lastaction}}
-            {{moment-from-now bee.lastaction}}
+              {{moment-from-now bee.lastaction}}
             {{else}}
-            never
+              never
             {{/if}}
-        </td>
-        {{#if bee.active}}
-            <td class="td-centered"><button disabled={{isDisabled}} {{action 'stopBee' bee.id}} class="btn btn-warning btn-sm btn-block">Stop</button></td>
-        {{else}}
-            <td class="td-centered"><button disabled={{isDisabled}} {{action 'startBee' bee.id}} class="btn btn-primary btn-sm btn-block">Start</button></td>
-        {{/if}}
-        <td class="td-centered"><button {{action 'deleteBee' bee}} class="btn btn-danger btn-sm btn-block">Delete</button></td>
-      </tr>
-    {{/each}}
+          </td>
+          {{#if bee.active}}
+            <td class="td-centered"><button disabled= {{isDisabled}} {{action 'stopBee' bee.id}} class="btn btn-warning btn-sm btn-block">Stop</button></td>
+          {{else}}
+            <td class="td-centered"><button disabled= {{isDisabled}} {{action 'startBee' bee.id}} class="btn btn-primary btn-sm btn-block">Start</button></td>
+          {{/if}}
+          <td class="td-centered"><button {{action 'deleteBee' bee}} class="btn btn-danger btn-sm btn-block">Delete</button></td>
+        </tr>
+      {{/each}}
     </tbody>
   </table>
 </div>

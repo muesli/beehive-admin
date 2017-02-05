@@ -5,18 +5,18 @@
 
     {{#each hives as |hive|}}
 
-    <div class="item col-xs-3 col-lg-3">
+      <div class="item col-xs-3 col-lg-3">
         <div {{action "showHive" hive on="click"}} class="thumbnail thumbnailflex thumbnailbutton" style="background-color: {{hive.logocolor}}">
-            <img class="group list-group-image-small" src={{hive.image}} alt="" />
-            <div class="caption" style="vertical-align: top;">
-                <h4 class="group inner list-group-item-heading">{{hive.name}}</h4>
-                <p class="group inner list-group-item-text">{{hive.description}}</p>
-            </div>
-            <div style="margin-top: 8px;">
-                {{#link-to "bees.new" hive.id tagName="button" class="btn btn-primary btn-sm btn-block"}}New Bee{{/link-to}}
-            </div>
+          <img class="group list-group-image-small" src= {{hive.image}} alt="" />
+          <div class="caption" style="vertical-align: top;">
+            <h4 class="group inner list-group-item-heading">{{hive.name}}</h4>
+            <p class="group inner list-group-item-text">{{hive.description}}</p>
+          </div>
+          <div style="margin-top: 8px;">
+            {{#link-to "bees.new" hive.id tagName="button" class="btn btn-primary btn-sm btn-block" }}New Bee{{/link-to}}
+          </div>
         </div>
-    </div>
+      </div>
 
     {{/each}}
 

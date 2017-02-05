@@ -1,54 +1,53 @@
 <div class="jumbo show-listing">
   <div class="row">
     <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
-        <img height="128" style="float: left; margin-right: 24px;" src={{bee.namespace.image}}/>
+      <img height="128" style="float: left; margin-right: 24px;" src= {{bee.namespace.image}} />
+      <div>
+        <h3 class="title"><strong>{{bee.name}}</strong></h3>
         <div>
-            <h3 class="title"><strong>{{bee.name}}</strong></h3>
-            <div>
-              <div class="detail">
-                  Hive: <strong>{{bee.namespace.name}}</strong>
-              </div>
-              <div class="detail">
-                  State:
-                  {{#if bee.active}}
-                      Running
-                      <td><button disabled={{isDisabled}} {{action 'stopBee'}} class="btn btn-warning btn-sm btn-block">Stop</button></td>
-                  {{else}}
-                      Stopped
-                      <td><button disabled={{isDisabled}} {{action 'startBee'}} class="btn btn-primary btn-sm btn-block">Start</button></td>
-                  {{/if}}
-              </div>
-            </div>
+          <div class="detail">
+            Hive: <strong>{{bee.namespace.name}}</strong>
+          </div>
+          <div class="detail">
+            State:
+            {{#if bee.active}}
+              Running
+              <td><button disabled= {{isDisabled}} {{action 'stopBee'}} class="btn btn-warning btn-sm btn-block">Stop</button></td>
+            {{else}}
+              Stopped
+              <td><button disabled= {{isDisabled}} {{action 'startBee'}} class="btn btn-primary btn-sm btn-block">Start</button></td>
+            {{/if}}
+          </div>
         </div>
+      </div>
     </div>
   </div>
 
   <br/>
   <div class="well">
 
-  <div class="form-horizontal form-group form-group-lg row">
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
-        <h4>Description:</h4>
-        {{textarea value=bee.description class="form-control" placeholder="Please enter a description"}}
-        <br/>
+    <div class="form-horizontal form-group form-group-lg row">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+          <h4>Description:</h4> {{textarea value=bee.description class="form-control" placeholder="Please enter a description"}}
+          <br/>
 
-        {{#each bee.options as |option|}}
-          <h4>{{option.Name}}:</h4>
-          <input type="text" onchange={{action (action "updateOption" option) value="target.value"}} value={{option.Value}} class="form-control" placeholder={{option.Value}}>
-        {{/each}}
+          {{#each bee.options as |option|}}
+            <h4>{{option.Name}}:</h4>
+            <input type="text" onchange= {{action (action "updateOption" option) value="target.value"}} value= {{option.Value}} class="form-control" placeholder= {{option.Value}}>
+          {{/each}}
 
+        </div>
+      </div>
+
+      <br/>
+
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-7 col-sm-4 col-md-3 col-md-offset-8">
+          <button disabled= {{isDisabled}} {{action 'updateBee'}} class="btn btn-primary btn-lg btn-block">Save Changes</button>
+        </div>
       </div>
     </div>
-
-    <br/>
-
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 col-sm-offset-7 col-sm-4 col-md-3 col-md-offset-8">
-        <button disabled={{isDisabled}} {{action 'updateBee'}} class="btn btn-primary btn-lg btn-block">Save Changes</button>
-      </div>
-    </div>
-  </div>
 
   </div>
 

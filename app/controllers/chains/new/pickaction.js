@@ -17,11 +17,13 @@ export default Ember.Controller.extend({
 
 		if (opts.some(value => {
 				if (value.Mandatory) {
-					if (!options.has(value.Name) || options.get(value.Name).length == 0) {
+					if (!options.has(value.Name) || options.get(value.Name).length === 0) {
 						return true;
 					}
 				}
-			})) return false;
+			})) {
+			return false;
+		}
 
 		return this.name.length > 0 && this.description.length > 0;
 	}),

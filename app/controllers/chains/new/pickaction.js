@@ -11,6 +11,22 @@ export default Ember.Controller.extend({
 
 	errorMessage: "",
 
+	isValid: Ember.computed('name', 'description', 'options', function() {
+		const opts = this.action.Options;
+		const options = this.options;
+
+		if (opts.some(value => {
+				if (value.Mandatory) {
+					if (!options.has(value.Name) || options.get(value.Name).length == 0) {
+						return true;
+					}
+				}
+			})) return false;
+
+		return this.name.length > 0 && this.description.length > 0;
+	}),
+	isDisabled: Ember.computed.not('isValid'),
+
 	isActionSet: Ember.computed('action', function() {
 		return this.action != null;
 	}),
@@ -24,6 +40,7 @@ export default Ember.Controller.extend({
 	actions: {
 		updateOption(option, value) {
 			this.options.set(option.Name, value);
+			this.notifyPropertyChange('options');
 		},
 
 		pickAction(action) {

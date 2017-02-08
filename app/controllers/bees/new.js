@@ -25,6 +25,12 @@ export default Ember.Controller.extend({
 	}),
 	isDisabled: Ember.computed.not('isValid'),
 
+	reset() {
+		this.set('name', "");
+		this.set('description', "");
+		this.set('options', new Map());
+	},
+
 	actions: {
 		updateOption(option, value) {
 			this.options.set(option.Name, value);
@@ -58,7 +64,7 @@ export default Ember.Controller.extend({
 			});
 			bee.save().then(
 				(bee) => {
-					this.options = new Map();
+					this.reset();
 					this.transitionToRoute('bees.show', bee.id);
 				},
 				error => {

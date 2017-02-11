@@ -3,10 +3,10 @@
 
   <div class="row list-group">
 
-    {{#each bee.namespace.actions as |action|}}
+    {{#each beeaction.namespace.actions as |action|}}
 
       <div class="item col-xs-4 col-lg-4">
-        <div {{action "pickAction" action on="click"}} class="thumbnail thumbnailbutton" style="background-color: {{bee.namespace.logocolor}}">
+        <div {{action "pickAction" action on="click"}} class="thumbnail thumbnailbutton" style="background-color: {{beeaction.namespace.logocolor}}">
           <div class="caption">
             <h3 class="group inner list-group-item-heading">{{action.Name}}</h3>
             <p class="group inner list-group-item-text">{{action.Description}}</p>
@@ -22,6 +22,29 @@
     <div class="jumbo show-listing">
       <h1 class="text-center"><b>Configure Action Parameters</b></h1>
       <div class="form-horizontal form-group form-group-lg row well">
+        <h4>Available parameters</h4>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {{#each event.Options as |option|}}
+              <tr>
+                <td><i>{{option.Name}}</i></td>
+                <td>{{option.Description}}</td>
+                <td>{{option.Type}}</td>
+              </tr>
+            {{/each}}
+
+          </tbody>
+        </table>
+
+        <br/>
 
         {{#each action.Options as |option|}}
           <h4>{{option.Description}}:</h4>

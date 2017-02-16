@@ -1,27 +1,31 @@
 <div>
   <h4>Existing Chains</h4>
-
-  <table class="table table-striped">
-    <!--    <caption>Bees</caption>-->
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each chains as |chain|}}
+  {{#if chains}}
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td class="td-centered">
-            {{#link-to "chains.show.summary" chain.id}}{{chain.name}}{{/link-to}}
-          </td>
-          <td class="td-centered">{{chain.description}}</td>
-          <td class="td-centered"><button {{action 'deleteChain' chain}} class="btn btn-danger btn-sm btn-block">Delete</button></td>
+          <th>Name</th>
+          <th>Description</th>
         </tr>
-      {{/each}}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {{#each chains as |chain|}}
+          <tr>
+            <td class="td-centered">
+              {{#link-to "chains.show.summary" chain.id}}{{chain.name}}{{/link-to}}
+            </td>
+            <td class="td-centered">{{chain.description}}</td>
+            <td class="td-centered"><button {{action 'deleteChain' chain}} class="btn btn-danger btn-sm btn-block">Delete</button></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    You haven't created any Chains yet.
+    <br/>
+  {{/if}}
 
+  <br/>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-0 col-sm-offset-0 col-sm-4 col-md-3 col-md-offset-0">
       {{#link-to "chains.new.pickbee" tagName="button" class="btn btn-primary btn-lg btn-block" }}Create a new Chain{{/link-to}}

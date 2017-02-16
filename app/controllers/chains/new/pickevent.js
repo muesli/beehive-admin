@@ -25,7 +25,7 @@ export default Ember.Controller.extend({
 					});
 					examples.push({
 						"Filter": "{{test Contains ." + value.Name + " \"example\"}}",
-						"Description": "Matches when <b>" + value.Name + "</b> contanins <i>example</i>"
+						"Description": "Matches when <b>" + value.Name + "</b> contains <i>example</i>"
 					});
 					break;
 				case "bool":

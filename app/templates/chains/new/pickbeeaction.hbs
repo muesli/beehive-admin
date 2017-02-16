@@ -1,11 +1,9 @@
 <div>
   <h1 class="text-center"><b>Pick an action Bee</b></h1>
 
-  <div class="row list-group">
-
-    {{#each bees as |actionbee|}}
-      {{#if actionbee.namespace.actions}}
-
+  {{#if actionBees}}
+    <div class="row list-group">
+      {{#each actionBees as |actionbee|}}
         <div class="item col-xs-4 col-lg-4">
           <div {{action "nextStep" actionbee on="click"}} class="thumbnail thumbnailbutton" style="background-color: {{actionbee.namespace.logocolor}}">
             <img class="group list-group-image" src= {{actionbee.namespace.image}} alt="" />
@@ -15,9 +13,14 @@
             </div>
           </div>
         </div>
-
-      {{/if}}
-    {{/each}}
-
-  </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <br/>
+    <div class="alert alert-warning">
+      None of your Bees provide an action. Check out the
+      {{#link-to 'hives.all'}}available Hives{{/link-to}}
+      and create one!
+    </div>
+  {{/if}}
 </div>

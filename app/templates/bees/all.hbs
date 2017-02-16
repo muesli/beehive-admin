@@ -1,48 +1,54 @@
 <div>
   <h4>Running Bees</h4>
-  <table class="table table-striped">
-    <!--    <caption>Bees</caption>-->
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Hive</th>
-        <th>Description</th>
-        <th>Last Event</th>
-        <th>Last Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each bees as |bee|}}
+  {{#if bees}}
+    <table class="table table-striped">
+      <!--    <caption>Bees</caption>-->
+      <thead>
         <tr>
-          <td class="td-centered">
-            {{#link-to "bees.show" bee.id}}{{bee.name}}{{/link-to}}
-          </td>
-          <td class="td-centered">
-            {{#link-to "hives.show.summary" bee.namespace.id}}{{bee.namespace.name}}{{/link-to}}
-          </td>
-          <td class="td-centered">{{bee.description}}</td>
-          <td class="td-centered">
-            {{#if bee.lastevent}}
-              {{moment-from-now bee.lastevent}}
-            {{else}}
-              never
-            {{/if}}
-          </td>
-          <td class="td-centered">
-            {{#if bee.lastaction}}
-              {{moment-from-now bee.lastaction}}
-            {{else}}
-              never
-            {{/if}}
-          </td>
-          {{#if bee.active}}
-            <td class="td-centered"><button disabled= {{isDisabled}} {{action 'stopBee' bee.id}} class="btn btn-warning btn-sm btn-block">Stop</button></td>
-          {{else}}
-            <td class="td-centered"><button disabled= {{isDisabled}} {{action 'startBee' bee.id}} class="btn btn-primary btn-sm btn-block">Start</button></td>
-          {{/if}}
-          <td class="td-centered"><button {{action 'deleteBee' bee}} class="btn btn-danger btn-sm btn-block">Delete</button></td>
+          <th>Name</th>
+          <th>Hive</th>
+          <th>Description</th>
+          <th>Last Event</th>
+          <th>Last Action</th>
         </tr>
-      {{/each}}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {{#each bees as |bee|}}
+          <tr>
+            <td class="td-centered">
+              {{#link-to "bees.show" bee.id}}{{bee.name}}{{/link-to}}
+            </td>
+            <td class="td-centered">
+              {{#link-to "hives.show.summary" bee.namespace.id}}{{bee.namespace.name}}{{/link-to}}
+            </td>
+            <td class="td-centered">{{bee.description}}</td>
+            <td class="td-centered">
+              {{#if bee.lastevent}}
+                {{moment-from-now bee.lastevent}}
+              {{else}}
+                never
+              {{/if}}
+            </td>
+            <td class="td-centered">
+              {{#if bee.lastaction}}
+                {{moment-from-now bee.lastaction}}
+              {{else}}
+                never
+              {{/if}}
+            </td>
+            {{#if bee.active}}
+              <td class="td-centered"><button disabled= {{isDisabled}} {{action 'stopBee' bee.id}} class="btn btn-warning btn-sm btn-block">Stop</button></td>
+            {{else}}
+              <td class="td-centered"><button disabled= {{isDisabled}} {{action 'startBee' bee.id}} class="btn btn-primary btn-sm btn-block">Start</button></td>
+            {{/if}}
+            <td class="td-centered"><button {{action 'deleteBee' bee}} class="btn btn-danger btn-sm btn-block">Delete</button></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    You haven't created any Bees yet. Check out the
+    {{#link-to 'hives.all'}}available Hives{{/link-to}}
+    and create your first one!
+  {{/if}}
 </div>

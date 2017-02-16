@@ -6,7 +6,7 @@
         <h3 class="title"><strong>{{bee.name}}</strong></h3>
         <div>
           <div class="detail">
-            Hive: <strong>{{bee.namespace.name}}</strong>
+            Hive: <strong>{{#link-to 'hives.show.summary' bee.namespace.id}}{{bee.namespace.name}}{{/link-to}}</strong>
           </div>
           <div class="detail">
             State:

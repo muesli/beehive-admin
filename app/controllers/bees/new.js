@@ -46,8 +46,8 @@ export default Ember.Controller.extend({
 		let id = this.options.get("client_id");
 		let secret = this.options.get("client_secret");
 
-		return id != undefined && id.length > 0 &&
-			secret != undefined && secret.length > 0;
+		return id !== undefined && id.length > 0 &&
+			secret !== undefined && secret.length > 0;
 	}),
 	isOauth2Disabled: Ember.computed.not('isOauth2Valid'),
 

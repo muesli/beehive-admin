@@ -27,6 +27,9 @@
       {{else}}
         No configuration needed.
     {{/each}}
+    {{#if needsOAuth2Login}}
+      <a disabled= {{isOauth2Disabled}} class="btn-primary btn" target="_blank" href= {{oauth2URL}}>Click here to login and retrieve a valid access token</a>
+    {{/if}}
   </div>
 
   <br/>

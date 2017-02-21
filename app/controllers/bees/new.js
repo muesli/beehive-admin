@@ -7,6 +7,50 @@ export default Ember.Controller.extend({
 
 	errorMessage: "",
 
+	needsOAuth2Login: Ember.computed('hive', function() {
+		var hive = this.get('hive');
+		var opts = hive.get('options');
+
+		for (var i = 0; i < opts.length; i++) {
+			let item = opts[i];
+
+			if (item.Type.startsWith('oauth2:')) {
+				return true;
+			}
+		}
+
+		return false;
+	}),
+	oauth2URL: Ember.computed('options', function() {
+		var hive = this.get('hive');
+		var opts = hive.get('options');
+
+		for (var i = 0; i < opts.length; i++) {
+			let item = opts[i];
+
+			if (item.Type.startsWith('oauth2:')) {
+				let url = item.Type.split("oauth2:").pop();
+
+				while (url.indexOf("__client_id__") >= 0) {
+					url = url.replace("__client_id__", this.options.get("client_id"));
+				}
+				while (url.indexOf("__client_secret__") >= 0) {
+					url = url.replace("__client_secret__", this.options.get("client_secret"));
+				}
+
+				return url;
+			}
+		}
+	}),
+	isOauth2Valid: Ember.computed('options', function() {
+		let id = this.options.get("client_id");
+		let secret = this.options.get("client_secret");
+
+		return id != undefined && id.length > 0 &&
+			secret != undefined && secret.length > 0;
+	}),
+	isOauth2Disabled: Ember.computed.not('isOauth2Valid'),
+
 	isValid: Ember.computed('name', 'description', 'options', function() {
 		const opts = this.hive.get('options');
 		const options = this.options;

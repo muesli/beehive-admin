@@ -5,5 +5,8 @@ export default DS.Model.extend({
 	description: DS.attr('string'),
 	actions: DS.hasMany('action'),
 	filters: DS.attr(),
-	event: DS.attr()
+	event: DS.attr(),
+	eventBee: function() {
+		return this.store.findRecord('bee', this.get('event').Bee);
+	}.property('event')
 });

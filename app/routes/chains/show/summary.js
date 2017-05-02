@@ -9,11 +9,5 @@ export default Ember.Route.extend({
 
 	setupController(controller, models) {
 		controller.set('chain', models.chain);
-
-		this.store.findRecord('bee', models.chain.get('event').Bee).then(
-			(bee) => {
-				controller.set('eventbee', bee);
-			}
-		);
 	}
 });

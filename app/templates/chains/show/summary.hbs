@@ -13,12 +13,14 @@
 
       <tr>
         <td>
-          {{#link-to "bees.show" eventbee.id}}{{eventbee.name}}{{/link-to}}
+          {{#link-to "bees.show" chain.eventBee.id}}{{chain.eventBee.name}}{{/link-to}}
         </td>
         <td>
-          {{#link-to "hives.show.summary" eventbee.namespace.id}}{{eventbee.namespace.name}}{{/link-to}}
+          {{#link-to "hives.show.summary" chain.eventBee.namespace.id}}{{chain.eventBee.namespace.name}}{{/link-to}}
         </td>
-        <td><i>{{#link-to "hives.show.event" eventbee.namespace.id chain.event.Name}}{{chain.event.Name}}{{/link-to}}</i></td>
+        <td>
+          <i>{{#link-to "hives.show.event" chain.eventBee.namespace.id chain.event.Name}}{{chain.event.Name}}{{/link-to}}</i>
+        </td>
       </tr>
 
     </tbody>

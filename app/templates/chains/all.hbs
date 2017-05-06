@@ -4,17 +4,23 @@
     <table class="table table-striped">
       <thead>
         <tr>
+          <th></th>
           <th>Name</th>
           <th>Description</th>
+          <th>Triggered by Event</th>
         </tr>
       </thead>
       <tbody>
         {{#each chains as |chain|}}
           <tr>
             <td class="td-centered">
+              {{#link-to "hives.show.summary" chain.eventBee.namespace.id}}<img height="32" width="32" src= {{chain.eventBee.namespace.image}} />{{/link-to}}
+            </td>
+            <td class="td-centered">
               {{#link-to "chains.show.summary" chain.id}}{{chain.name}}{{/link-to}}
             </td>
             <td class="td-centered">{{chain.description}}</td>
+            <td class="td-centered"><i>{{#link-to "hives.show.event" chain.eventBee.namespace.id chain.event.Name}}{{chain.event.Name}}{{/link-to}}</i></td>
             <td class="td-centered"><button {{action 'deleteChain' chain}} class="btn btn-danger btn-sm btn-block">Delete</button></td>
           </tr>
         {{/each}}

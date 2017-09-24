@@ -1,0 +1,39 @@
+<div>
+  <h4>Logs</h4>
+  {{#if logs}}
+    <table class="table table-striped">
+      <!--    <caption>Logs</caption>-->
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Name</th>
+          <th>Message</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each logs as |log|}}
+          <tr>
+            <td class="td-centered">
+              {{#if log.level 1}}<span style="font-size: 1.5em; color: red;" class="glyphicon glyphicon-exclamation-sign"></span>{{/if}}
+            </td>
+            <td class="td-centered">
+              {{#link-to "hives.show.summary" log.bee.namespace.id}}<img height="32" width="32" src= {{log.bee.namespace.image}} />{{/link-to}}
+            </td>
+            <td class="td-centered">
+              {{#link-to "bees.show" log.bee.id}}{{log.bee.name}}{{/link-to}}
+            </td>
+            <td class="td-centered">{{log.message}}</td>
+            <td class="td-centered">{{moment-from-now log.timestamp}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <br/>
+    <div class="alert alert-warning">
+        No logs found yet.
+    </div>
+  {{/if}}
+</div>

@@ -15,6 +15,8 @@ export default function() {
     this.passthrough('/events/:event_id');
     this.passthrough('/filters');
     this.passthrough('/filters/:filter_id');
+    this.passthrough('/logs');
+    this.passthrough('/logs/:log_id');
 
   // These comments are here to help you get started. Feel free to delete them.
 

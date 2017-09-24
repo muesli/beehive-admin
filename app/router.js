@@ -57,6 +57,10 @@ Router.map(function() {
           });
       });
   });
+
+  this.route('logs', function() {
+    this.route('all');
+  });
 });
 
 export default Router;
